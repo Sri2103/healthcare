@@ -60,35 +60,17 @@ function App() {
         </div>
 
         {/* active tab sections */}
-        {/* RevOptix */}
         {activeTab === "revoptix" && <RevOptix />}
-
-        {/* RevAccel Agent */}
         {activeTab === "revaccel" && <RevAccel />}
-
         {/* PreVisit (default) */}
         {activeTab === "previsit" && <Previsit />}
-
-        {/* Pre-bill (detailed) */}
         {activeTab === "prebill" && <Prebill />}
-
-        {/* A/R Worklist (detailed) */}
         {activeTab === "ar" && <Ar />}
-
-        {/* Scheduler Ops (detailed) */}
         {activeTab === "scheduler" && <Scheduler />}
-
-        {/* Scheduled Patients (detailed) */}
         {activeTab === "scheduledpat" && <SchedulePat />}
-
-        {/* Appeals (GenAI) full */}
         {activeTab === "appeals" && <Appeals />}
-
-        {/* Analytics expanded */}
         {activeTab === "analytics" && <Analytics />}
-        {/* Data Mapping Admin detailed */}
         {activeTab === "dataops" && <DataOps />}
-        {/* Admin APIs detailed */}
         {activeTab === "adminapis" && <AdminApi />}
       </main>
 
