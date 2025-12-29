@@ -11,7 +11,7 @@ import { claimLines } from "../data/data";
 import { getRiskVariant } from "../utils/helper";
 export default function Prebill() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-8 gap-4">
       <div className="lg:col-span-5">
         <Card>
           <CardHeader>

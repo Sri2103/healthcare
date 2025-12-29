@@ -17,7 +17,7 @@ export default function Scheduler() {
             <CardDescription>High-risk slots highlighted</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-4 gap-3 text-[13px]">
+            <div className="grid grid-cols-4 md:grid-cols-3 gap-3 text-[13px]">
               {Array.from({ length: 12 }).map((_, i) => (
                 <div
                   key={i}

@@ -3,6 +3,10 @@ export const Tabs = {
     key: "previsit",
     label: "PerVisit AI Agent",
   },
+  conversationalBI: {
+    key: "conversationalBI",
+    label: "conversational BI",
+  },
   scheduledpat: {
     key: "scheduledpat",
     label: "Scheduled Patients",

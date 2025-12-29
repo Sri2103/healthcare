@@ -17,7 +17,7 @@ export default function SchedulePat() {
           <CardTitle>Date Range & Filters</CardTitle>
           <CardDescription>Filter scheduled patients</CardDescription>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-5 gap-3 text-[13px]">
+        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[13px]">
           <div className="md:col-span-2">
             <div className="font-medium">From</div>
             <input
