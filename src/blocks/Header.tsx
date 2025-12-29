@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../components/Button";
 
 function HeaderBlock({
@@ -47,6 +48,18 @@ function HeaderBlock({
             onClick={() => setAdminPanelOpen(true)}
           >
             Admin
+          </Button>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button>
+            <Link to={"/login"}>Login</Link>
+          </Button>
+          <Button>
+            <Link to={"/register"}>Register</Link>
+          </Button>
+
+          <Button>
+            <Link to={"/subscribe"}>Subscribe</Link>
           </Button>
         </div>
       </div>
