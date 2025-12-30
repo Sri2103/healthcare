@@ -122,3 +122,22 @@ export const worklist = [
 
 // Example patient-level denial risk (would come from model in real app)
 export const patientDenialRisk = "High"; // options: High / Med / Low
+
+export const appointmentOpportunities = [
+  {
+    id: 1,
+    title: "Reschedule outreach — High no-show risk",
+    provider: "Dr. Smith",
+    estRevenue: "$18,400",
+    impact: "Reduce no-show 12%",
+    channel: "SMS",
+  },
+  {
+    id: 2,
+    title: "Deposit collection at booking",
+    provider: "Dr. Johnson",
+    estRevenue: "$24,500",
+    impact: "Increase collected OOP 22%",
+    channel: "Payment Link",
+  },
+];

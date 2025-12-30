@@ -8,13 +8,39 @@ import {
   Search,
   Menu,
   X,
+  Brain,
+  ChartColumnBig,
+  CalendarSync,
+  ClipboardClock,
+  Receipt,
+  Activity,
+  ScanEye,
+  CircleDollarSign,
+  Asterisk,
+  ChartBarIncreasing,
+  Waypoints,
+  Import,
+  Upload,
+  LogOut,
+  Coins,
 } from "lucide-react";
 import { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router";
+import { Link, Outlet, useLocation, useNavigate } from "react-router";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const nagivate = useNavigate();
   const location = useLocation();
+
+  const isLoggedIn = localStorage.getItem("authenticated");
+  if (isLoggedIn != "true") {
+    nagivate("/login");
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("authenticated");
+    nagivate("/login");
+  };
 
   return (
     <div className="min-h-screen flex bg-slate-50 relative overflow-hidden">
@@ -30,7 +56,7 @@ export default function Dashboard() {
       <aside
         className={`
           fixed md:static inset-y-0 left-0 z-50
-          w-64 bg-blue-600 text-white flex flex-col
+          w-64 bg-blue-600 text-white flex flex-col h-screen
           transform transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
@@ -55,6 +81,7 @@ export default function Dashboard() {
           <Link to={"/dashboard/previsit"}>
             <NavItem
               label="PerVisit AI Agent"
+              icon={<Brain size={16} />}
               active={
                 location.pathname === "/dashboard" ||
                 location.pathname === "/dashboard/previsit"
@@ -63,12 +90,20 @@ export default function Dashboard() {
           </Link>
           <Link to={"/dashboard/bi"}>
             <NavItem
+              icon={<ChartColumnBig size={16} />}
               label="conversational BI"
               active={location.pathname === "/dashboard/bi"}
             />
           </Link>
+          <Link to={"/dashboard/apptrev"}>
+            <NavItem
+              icon={<Coins />}
+              label="Appointment - Revenue Intelligence"
+            />
+          </Link>
           <Link to="/dashboard/schedulepat">
             <NavItem
+              icon={<CalendarSync size={16} />}
               label="Scheduled Patients"
               active={location.pathname === "/dashboard/schedulepat"}
             />
@@ -76,18 +111,21 @@ export default function Dashboard() {
           <Link to="/dashboard/scheduler">
             <NavItem
               label="Scheduler Ops"
+              icon={<ClipboardClock size={16} />}
               active={location.pathname === "/dashboard/scheduler"}
             />
           </Link>
           <Link to="/dashboard/prebill">
             <NavItem
               label="Pre-Bill Scrubber"
+              icon={<Receipt size={16} />}
               active={location.pathname === "/dashboard/prebill"}
             />
           </Link>
 
           <Link to="/dashboard/ar">
             <NavItem
+              icon={<Activity size={16} />}
               label="A/R Worklist"
               active={location.pathname === "/dashboard/ar"}
             />
@@ -95,18 +133,21 @@ export default function Dashboard() {
           <Link to="/dashboard/appeals">
             <NavItem
               label="GenAI Appeal"
+              icon={<ScanEye size={16} />}
               active={location.pathname === "/dashboard/appeals"}
             />
           </Link>
 
           <Link to="/dashboard/revoptix">
             <NavItem
+              icon={<CircleDollarSign size={16} />}
               label="RevOptix AI"
               active={location.pathname === "/dashboard/revoptix"}
             />
           </Link>
           <Link to="/dashboard/revaccel">
             <NavItem
+              icon={<Asterisk size={16} />}
               label="RevAccel Agent"
               active={location.pathname === "/dashboard/revaccel"}
             />
@@ -114,18 +155,21 @@ export default function Dashboard() {
 
           <Link to={"/dashboard/analytics"}>
             <NavItem
+              icon={<ChartBarIncreasing size={16} />}
               label="analytics"
               active={location.pathname === "/dashboard/analytics"}
             />
           </Link>
           <Link to={"/dashboard/dataops"}>
             <NavItem
+              icon={<Waypoints size={16} />}
               label="Data Mapping Admin"
               active={location.pathname === "/dashboard/dataops"}
             />
           </Link>
           <Link to={"/dashboard/adminapis"}>
             <NavItem
+              icon={<Waypoints size={16} />}
               label="X12 API Admin"
               active={location.pathname === "/dashboard/dataops"}
             />
@@ -133,12 +177,15 @@ export default function Dashboard() {
         </nav>
 
         <div className="px-4 pb-4 text-sm">
-          <NavItem icon={<Bell size={16} />} label="Notifications" badge="5" />
+          {/* <NavItem icon={<Bell size={16} />} label="Notifications" badge="5" /> */}
+          <button onClick={handleLogout}>
+            <NavItem icon={<LogOut size={16} />} label="Logout" />
+          </button>
         </div>
       </aside>
 
       {/* Main */}
-      <main className="flex-1 flex flex-col md:ml-0">
+      <main className=" h-screen flex-1 flex flex-col md:ml-0">
         {/* Header */}
         <header className="h-16 bg-white border-b px-4 md:px-6 flex items-center justify-between">
           {/* Left: Hamburger + Search */}
@@ -159,6 +206,21 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* import and export */}
+          <div className=" mx-2 flex gap-2">
+            <div>
+              <div className="flex gap-2 border px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white cursor-pointer">
+                <Import size={24} /> Import
+              </div>
+            </div>
+            <div>
+              {/* export */}
+              <div className="flex gap-2 border px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
+                <Upload size={24} /> Export
+              </div>
+            </div>
+          </div>
+
           {/* Right */}
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Bell size={18} />
@@ -171,7 +233,7 @@ export default function Dashboard() {
         </header>
 
         {/* Content */}
-        <div className="p-4 md:p-6 space-y-6">
+        <div className="p-4 md:p-6 space-y-6 overflow-y-auto ">
           {/* same content as before */}
           <Outlet />
         </div>
@@ -194,8 +256,10 @@ const NavItem = ({
   badge?: string;
 }) => (
   <div
-    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer
-    ${active ? "bg-blue-500" : "hover:bg-blue-500/40"}`}
+    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer font-medium
+    ${
+      active ? "bg-white text-blue-600" : "hover:bg-white hover:text-blue-400"
+    }`}
   >
     <div className="flex items-center gap-2">
       {icon}

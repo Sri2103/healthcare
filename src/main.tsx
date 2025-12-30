@@ -23,6 +23,7 @@ import AdminApi from "./blocks/AdminApi.tsx";
 import RevOptix from "./blocks/Revoptix.tsx";
 import Analytics from "./blocks/Analytics.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import AppointRev from "./blocks/AppointRev.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -48,6 +49,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="analytics" element={<Analytics />} />
           <Route path="dataops" element={<DataOps />} />
           <Route path="adminapis" element={<AdminApi />} />
+          <Route path="apptrev" element={<AppointRev />} />
         </Route>
       </Routes>
     </BrowserRouter>

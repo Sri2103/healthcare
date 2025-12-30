@@ -47,4 +47,8 @@ export const Tabs = {
     key: "adminapis",
     label: "X12 API Admin",
   },
+  apptrev: {
+    key: "apptrev",
+    label: "Appointment - Revenue Intelligence",
+  },
 };
