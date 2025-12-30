@@ -29,13 +29,15 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to={"/dashboard"} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/bi" element={<BiDashboard />} />
-        <Route path="/subscribe" element={<Subscription />} />
+        <Route path="/">
+          <Route index element={<Navigate to={"dashboard"} />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="bi" element={<BiDashboard />} />
+          <Route path="subscribe" element={<Subscription />} />
+        </Route>
 
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Previsit />} />
           <Route path="previsit" element={<Previsit />} />
           <Route path="bi" element={<ConversationalBI />} />
