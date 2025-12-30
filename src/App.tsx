@@ -28,7 +28,7 @@ function App() {
   const navigate = useNavigate();
 
   const isLoggedIn = localStorage.getItem("authenticated");
-  if (!isLoggedIn) {
+  if (isLoggedIn != "true") {
     navigate("/login");
   }
   return (
