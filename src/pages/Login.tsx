@@ -1,14 +1,23 @@
 import { useState } from "react";
 import { Input } from "../components/Input";
 import Button from "../components/Button";
+import { manageLogin } from "../utils/helper";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     console.log({ email, password });
-    // call login API here
+    const valid = manageLogin(email, password);
+    if (!valid) {
+      alert("unauthenticated");
+      return;
+    }
+    localStorage.setItem("authenticated", "true");
+    navigate("/subscribe");
   };
 
   return (

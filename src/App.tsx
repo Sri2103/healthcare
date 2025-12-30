@@ -47,7 +47,7 @@ function App() {
             <aside className="md:w-56 shrink-0">
               <div className="flex md:flex-col flex-wrap gap-2 md:sticky md:top-20">
                 <Button>
-                  <Link to={"/dashboard"}>BI Dashboard</Link>
+                  <Link to={"/dashboard"}>Power BI</Link>
                 </Button>
                 {Object.keys(Tabs).map((key) => {
                   const curr: { key: string; label: string } =

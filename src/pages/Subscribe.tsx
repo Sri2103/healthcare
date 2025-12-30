@@ -1,142 +1,163 @@
-import { useState } from "react";
-import { Card } from "../components/Card";
-import Button from "../components/Button";
+import { type FC, useState, type ChangeEvent } from "react";
+import { useNavigate } from "react-router";
 
-type Plan = {
-  id: string;
+/* ------------------ Types ------------------ */
+
+type PlanId = "basic" | "pro" | "enterprise";
+
+interface Plan {
+  id: PlanId;
   name: string;
   price: number;
-  period: string;
-  features: string[];
-};
+  description: string;
+}
+
+/* ------------------ Data ------------------ */
 
 const PLANS: Plan[] = [
   {
     id: "basic",
     name: "Basic",
     price: 9,
-    period: "month",
-    features: ["Access core features", "Email support"],
+    description: "For personal use",
   },
   {
     id: "pro",
     name: "Pro",
-    price: 19,
-    period: "month",
-    features: ["Everything in Basic", "Priority support", "Advanced analytics"],
+    price: 29,
+    description: "For professionals",
   },
   {
-    id: "yearly",
-    name: "Yearly",
-    price: 199,
-    period: "year",
-    features: ["2 months free", "All Pro features"],
+    id: "enterprise",
+    name: "Enterprise",
+    price: 99,
+    description: "For teams & companies",
   },
 ];
 
-export default function Subscription() {
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
-  const [gateway, setGateway] = useState<"stripe" | "razorpay" | null>(null);
+/* ------------------ Component ------------------ */
 
-  const handleCheckout = () => {
-    console.log({
-      plan: selectedPlan,
-      gateway,
-    });
-    // redirect to Stripe / Razorpay checkout
+const SubscriptionPage: FC = () => {
+  const [selectedPlan, setSelectedPlan] = useState<Plan>(PLANS[1]);
+  const navigate = useNavigate();
+
+  const [payment, setPayment] = useState({
+    name: "",
+    cardNumber: "",
+    expiry: "",
+    cvv: "",
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPayment((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubscribe = () => {
+    // 🔌 Integrate Stripe / Razorpay here
+    console.log("Plan:", selectedPlan);
+    console.log("Payment:", payment);
+    navigate("/");
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold">Choose Your Subscription</h1>
-          <p className="text-gray-600 mt-2">Simple pricing. Cancel anytime.</p>
-        </div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-8 grid md:grid-cols-2 gap-8">
+        {/* ---------------- Plans ---------------- */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Choose your plan</h2>
 
-        {/* Pricing Grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {PLANS.map((plan) => (
-            <Card
-              key={plan.id}
-              className={`cursor-pointer transition p-4 ${
-                selectedPlan?.id === plan.id
-                  ? "ring-2 ring-blue-500"
-                  : "hover:shadow-md"
-              }`}
-            >
-              <div className="space-y-4" onClick={() => setSelectedPlan(plan)}>
-                <h2 className="text-xl font-semibold">{plan.name}</h2>
-                <div className="text-3xl font-bold">
-                  ${plan.price}
-                  <span className="text-base font-normal text-gray-500">
-                    /{plan.period}
+          <div className="space-y-4">
+            {PLANS.map((plan) => (
+              <div
+                key={plan.id}
+                onClick={() => setSelectedPlan(plan)}
+                className={`cursor-pointer border rounded-xl p-4 transition
+                  ${
+                    selectedPlan.id === plan.id
+                      ? "border-blue-600 bg-blue-50"
+                      : "border-gray-200 hover:border-gray-400"
+                  }`}
+              >
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-medium">{plan.name}</h3>
+                    <p className="text-sm text-gray-500">{plan.description}</p>
+                  </div>
+                  <span className="text-lg font-semibold">
+                    ${plan.price}/mo
                   </span>
                 </div>
-
-                <ul className="space-y-2 text-sm text-gray-600">
-                  {plan.features.map((f) => (
-                    <li key={f}>✓ {f}</li>
-                  ))}
-                </ul>
               </div>
-            </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
 
-        {/* Selected Plan + Gateway */}
-        {selectedPlan && (
-          <Card className={"p-4 border"}>
-            <div className="space-y-6">
-              {/* Plan Summary */}
-              <div>
-                <h3 className="text-lg font-semibold">Selected Plan</h3>
-                <p className="text-gray-700">
-                  {selectedPlan.name} – ${selectedPlan.price}/
-                  {selectedPlan.period}
-                </p>
-              </div>
+        {/* ---------------- Payment ---------------- */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Payment details</h2>
 
-              {/* Payment Gateway */}
-              <div>
-                <h3 className="text-lg font-semibold mb-3">
-                  Choose Payment Method
-                </h3>
+          <div className="space-y-4">
+            <input
+              name="name"
+              value={payment.name}
+              onChange={handleChange}
+              placeholder="Cardholder Name"
+              className="w-full border rounded-lg px-4 py-2"
+            />
 
-                <div className="flex gap-4">
-                  <button
-                    onClick={() => setGateway("stripe")}
-                    className={`flex-1 rounded-xl border p-4 ${
-                      gateway === "stripe"
-                        ? "border-blue-500 bg-blue-50"
-                        : "hover:border-gray-400"
-                    }`}
-                  >
-                    💳 Stripe
-                  </button>
+            <input
+              name="cardNumber"
+              value={payment.cardNumber}
+              onChange={handleChange}
+              placeholder="Card Number"
+              className="w-full border rounded-lg px-4 py-2"
+            />
 
-                  <button
-                    onClick={() => setGateway("razorpay")}
-                    className={`flex-1 rounded-xl border p-4 ${
-                      gateway === "razorpay"
-                        ? "border-blue-500 bg-blue-50"
-                        : "hover:border-gray-400"
-                    }`}
-                  >
-                    🇮🇳 Razorpay
-                  </button>
-                </div>
-              </div>
-
-              {/* Checkout */}
-              <Button onClick={handleCheckout} disabled={!gateway}>
-                Continue to Pay
-              </Button>
+            <div className="flex gap-4">
+              <input
+                name="expiry"
+                value={payment.expiry}
+                onChange={handleChange}
+                placeholder="MM / YY"
+                className="w-1/2 border rounded-lg px-4 py-2"
+              />
+              <input
+                name="cvv"
+                value={payment.cvv}
+                onChange={handleChange}
+                placeholder="CVV"
+                className="w-1/2 border rounded-lg px-4 py-2"
+              />
             </div>
-          </Card>
-        )}
+
+            {/* ---------------- Summary ---------------- */}
+            <div className="border-t pt-4 mt-4">
+              <div className="flex justify-between text-sm">
+                <span>Plan</span>
+                <span>{selectedPlan.name}</span>
+              </div>
+              <div className="flex justify-between font-semibold text-lg mt-1">
+                <span>Total</span>
+                <span>${selectedPlan.price}/month</span>
+              </div>
+            </div>
+
+            <button
+              onClick={handleSubscribe}
+              className="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
+            >
+              Subscribe & Pay
+            </button>
+
+            <p className="text-xs text-gray-500 text-center">
+              Secure payment • Cancel anytime
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   );
-}
+};
+
+export default SubscriptionPage;
