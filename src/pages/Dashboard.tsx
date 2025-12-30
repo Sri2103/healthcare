@@ -24,7 +24,7 @@ import {
   LogOut,
   Coins,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 
 export default function Dashboard() {
@@ -32,10 +32,12 @@ export default function Dashboard() {
   const nagivate = useNavigate();
   const location = useLocation();
 
-  const isLoggedIn = localStorage.getItem("authenticated");
-  if (isLoggedIn != "true") {
-    nagivate("/login");
-  }
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("authenticated");
+    if (isLoggedIn != "true") {
+      nagivate("/login");
+    }
+  }, [nagivate]);
 
   const handleLogout = () => {
     localStorage.removeItem("authenticated");
