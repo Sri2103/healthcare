@@ -171,7 +171,7 @@ export default function Dashboard() {
             <NavItem
               icon={<Waypoints size={16} />}
               label="X12 API Admin"
-              active={location.pathname === "/dashboard/dataops"}
+              active={location.pathname === "/dashboard/adminapis"}
             />
           </Link>
         </nav>
@@ -256,7 +256,7 @@ const NavItem = ({
   badge?: string;
 }) => (
   <div
-    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer font-medium
+    className={`flex items-center justify-between px-3 py-2 mt-2 rounded-lg cursor-pointer font-medium
     ${
       active ? "bg-white text-blue-600" : "hover:bg-white hover:text-blue-400"
     }`}
