@@ -17,7 +17,7 @@ import AdminApi from "./blocks/AdminApi";
 import HeaderBlock from "./blocks/Header";
 import AdminPanel from "./blocks/AdminPanel";
 import ConversationalBI from "./blocks/ConversationalBI";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Button from "./components/Button";
 
 function App() {
@@ -25,6 +25,12 @@ function App() {
   const [activeTab, setActiveTab] = useState("previsit");
   const [activeTenant, setActiveTenant] = useState("UnityCare Health System");
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const isLoggedIn = localStorage.getItem("authenticated");
+  if (!isLoggedIn) {
+    navigate("/login");
+  }
   return (
     <div
       className="min-h-screen bg-white text-gray-800 flex flex-col"

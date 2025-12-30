@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import Button from "../components/Button";
 
 function HeaderBlock({
@@ -14,6 +14,11 @@ function HeaderBlock({
   setSearch: (val: string) => void;
   setAdminPanelOpen: (val: boolean) => void;
 }) {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("authenticated");
+    navigate("/login");
+  };
   return (
     <header className="sticky top-0 z-30 border-b bg-white/70 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3">
@@ -51,16 +56,17 @@ function HeaderBlock({
           </Button>
         </div>
         <div className="flex items-center gap-2">
-          <Button>
+          <Button onClick={handleLogout}>Logout</Button>
+          {/* <Button>
             <Link to={"/login"}>Login</Link>
-          </Button>
-          <Button>
+          </Button> */}
+          {/* <Button>
             <Link to={"/register"}>Register</Link>
-          </Button>
+          </Button> */}
 
-          <Button>
+          {/* <Button>
             <Link to={"/subscribe"}>Subscribe</Link>
-          </Button>
+          </Button> */}
         </div>
       </div>
     </header>
