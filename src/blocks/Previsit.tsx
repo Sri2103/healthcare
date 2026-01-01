@@ -55,7 +55,6 @@ function Previsit() {
         </Card>
 
         {/* order */}
-
         <Card>
           <CardHeader>
             <CardTitle>Prior Authorization</CardTitle>
@@ -75,6 +74,52 @@ function Previsit() {
                 className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                 placeholder="Notes or payer response"
               />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Order</CardTitle>
+            <CardDescription>Service intent</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <div className="font-medium">CPT</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="70553"
+                />
+              </div>
+              <div>
+                <div className="font-medium">ICD-10</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="G43.909"
+                />
+              </div>
+              <div>
+                <div className="font-medium">POS</div>
+                <select
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="OP"
+                >
+                  <option>OP</option>
+                  <option>ASC</option>
+                  <option>IP</option>
+                </select>
+              </div>
+              <div>
+                <div className="font-medium">Site</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="Imaging Center 1"
+                />
+              </div>
+              <div className="col-span-2">
+                <Button className="w-full">Re-score Risk</Button>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -137,7 +182,7 @@ function Previsit() {
         </Card>
       </div>
 
-      {/* prior authorization */}
+      {/* prior authorization
       <div className="space-y-4">
         <Card>
           <CardHeader>
@@ -184,7 +229,7 @@ function Previsit() {
             </div>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
     </div>
   );
 }
