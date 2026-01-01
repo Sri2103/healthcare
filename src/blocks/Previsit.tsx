@@ -13,6 +13,7 @@ function Previsit() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div className="space-y-4">
+        {/* patient context */}
         <Card>
           <CardHeader>
             <CardTitle>Patient Context</CardTitle>
@@ -53,53 +54,32 @@ function Previsit() {
           </CardContent>
         </Card>
 
+        {/* order */}
+
         <Card>
           <CardHeader>
-            <CardTitle>Order</CardTitle>
-            <CardDescription>Service intent</CardDescription>
+            <CardTitle>Prior Authorization</CardTitle>
+            <CardDescription>Prediction & submit</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <div className="font-medium">CPT</div>
-                <input
-                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
-                  defaultValue="70553"
-                />
-              </div>
-              <div>
-                <div className="font-medium">ICD-10</div>
-                <input
-                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
-                  defaultValue="G43.909"
-                />
-              </div>
-              <div>
-                <div className="font-medium">POS</div>
-                <select
-                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
-                  defaultValue="OP"
-                >
-                  <option>OP</option>
-                  <option>ASC</option>
-                  <option>IP</option>
-                </select>
-              </div>
-              <div>
-                <div className="font-medium">Site</div>
-                <input
-                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
-                  defaultValue="Imaging Center 1"
-                />
-              </div>
-              <div className="col-span-2">
-                <Button className="w-full">Re-score Risk</Button>
-              </div>
+            <div className="text-[13px]">
+              <strong>Needs PA:</strong> Likely — <strong>First-Pass:</strong>{" "}
+              34%
+            </div>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <Button variant="outline">Attach Docs</Button>
+              <Button>Submit PA</Button>
+            </div>
+            <div className="mt-3">
+              <textarea
+                className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                placeholder="Notes or payer response"
+              />
             </div>
           </CardContent>
         </Card>
       </div>
-
+      {/* Eligibility */}
       <div className="space-y-4">
         <Card>
           <CardHeader>
@@ -157,26 +137,50 @@ function Previsit() {
         </Card>
       </div>
 
+      {/* prior authorization */}
       <div className="space-y-4">
         <Card>
           <CardHeader>
-            <CardTitle>Prior Authorization</CardTitle>
-            <CardDescription>Prediction & submit</CardDescription>
+            <CardTitle>Order</CardTitle>
+            <CardDescription>Service intent</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-[13px]">
-              <strong>Needs PA:</strong> Likely — <strong>First-Pass:</strong>{" "}
-              34%
-            </div>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              <Button variant="outline">Attach Docs</Button>
-              <Button>Submit PA</Button>
-            </div>
-            <div className="mt-3">
-              <textarea
-                className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
-                placeholder="Notes or payer response"
-              />
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <div className="font-medium">CPT</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="70553"
+                />
+              </div>
+              <div>
+                <div className="font-medium">ICD-10</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="G43.909"
+                />
+              </div>
+              <div>
+                <div className="font-medium">POS</div>
+                <select
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="OP"
+                >
+                  <option>OP</option>
+                  <option>ASC</option>
+                  <option>IP</option>
+                </select>
+              </div>
+              <div>
+                <div className="font-medium">Site</div>
+                <input
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
+                  defaultValue="Imaging Center 1"
+                />
+              </div>
+              <div className="col-span-2">
+                <Button className="w-full">Re-score Risk</Button>
+              </div>
             </div>
           </CardContent>
         </Card>
