@@ -204,7 +204,10 @@ export default function Dashboard() {
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
               />
               <input
-                className="w-full pl-9 pr-3 py-2 rounded-lg border text-sm focus:outline-none"
+                className="w-full 
+                pl-9 pr-3 py-2 rounded-lg border text-sm focus:outline-none border-gray-300
+                 bg-white outline-none
+                active:border-gray-400"
                 placeholder="Search patients, appointments..."
               />
             </div>

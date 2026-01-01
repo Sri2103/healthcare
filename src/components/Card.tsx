@@ -8,7 +8,11 @@ export function Card({ children, className = "" }: any) {
   );
 }
 export function CardHeader({ children }: any) {
-  return <div className="border-b px-4 py-3  text-blue-800">{children}</div>;
+  return (
+    <div className="border-b border-gray-200 px-4 py-3  text-blue-800">
+      {children}
+    </div>
+  );
 }
 export function CardTitle({ children, className = "" }: any) {
   return (

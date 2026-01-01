@@ -54,10 +54,10 @@ export default function ConversationalBI() {
                   }`}
                 >
                   <div
-                    className={`max-w-[70%] rounded-xl px-3 py-2 text-[14px] ${
+                    className={`max-w-[70%] rounded-md px-3 py-2 text-[14px] ${
                       m.from === "user"
                         ? "bg-[#0F4C81] text-white"
-                        : "bg-white border"
+                        : "bg-white border border-gray-300"
                     }`}
                   >
                     {m.text}
@@ -74,9 +74,17 @@ export default function ConversationalBI() {
                   if (e.key === "Enter") sendChat();
                 }}
                 placeholder="Ask RevBot..."
-                className="flex-1 rounded-xl border px-3 py-2 text-[13px]"
+                className="
+                          px-3 py-2 text-[13px]
+                          flex-1 
+                          rounded-md border border-gray-300 
+                          bg-white outline-none transition duration-300 ease-in-out 
+                          hover:border-blue-500 
+                          active:border-blue-700 
+                          focus:ring-2 
+                        focus:ring-blue-400 "
               />
-              <Button size="sm" onClick={sendChat}>
+              <Button size="md" onClick={sendChat}>
                 Send
               </Button>
             </div>
@@ -99,7 +107,7 @@ export default function ConversationalBI() {
                 <button
                   key={p}
                   onClick={() => setChatInput(p)}
-                  className="text-left rounded-xl border px-3 py-2 hover:bg-gray-50"
+                  className="text-left rounded-xl border border-gray-300 cursor-pointer px-3 py-2 hover:bg-gray-50"
                 >
                   {p}
                 </button>

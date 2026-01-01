@@ -63,21 +63,21 @@ function Previsit() {
               <div>
                 <div className="font-medium">CPT</div>
                 <input
-                  className="w-full rounded-xl border px-3 py-2 text-[13px]"
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                   defaultValue="70553"
                 />
               </div>
               <div>
                 <div className="font-medium">ICD-10</div>
                 <input
-                  className="w-full rounded-xl border px-3 py-2 text-[13px]"
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                   defaultValue="G43.909"
                 />
               </div>
               <div>
                 <div className="font-medium">POS</div>
                 <select
-                  className="w-full rounded-xl border px-3 py-2 text-[13px]"
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                   defaultValue="OP"
                 >
                   <option>OP</option>
@@ -88,7 +88,7 @@ function Previsit() {
               <div>
                 <div className="font-medium">Site</div>
                 <input
-                  className="w-full rounded-xl border px-3 py-2 text-[13px]"
+                  className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                   defaultValue="Imaging Center 1"
                 />
               </div>
@@ -174,7 +174,7 @@ function Previsit() {
             </div>
             <div className="mt-3">
               <textarea
-                className="w-full rounded-xl border px-3 py-2 text-[13px]"
+                className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
                 placeholder="Notes or payer response"
               />
             </div>

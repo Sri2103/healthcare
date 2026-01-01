@@ -21,7 +21,17 @@ export function Input({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full border border-gray-300 
+        bg-white 
+        rounded-md 
+        px-4 py-2 
+        outline-none 
+        transition 
+        duration-300 
+        ease-in-out 
+        hover:border-blue-500 hover:bg-blue-50 
+        active:border-blue-700 
+        focus:ring-2 focus:ring-blue-400"
       />
     </div>
   );
