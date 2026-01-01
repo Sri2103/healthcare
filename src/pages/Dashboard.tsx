@@ -239,7 +239,7 @@ export default function Dashboard() {
                     {item.children.map((child) => (
                       <Link key={child.path} to={child.path}>
                         <div
-                          className={`px-3 py-2 rounded-lg cursor-pointer
+                          className={`px-3 py-2 rounded-lg cursor-pointer mt-1
                           ${
                             location.pathname === child.path
                               ? "bg-white text-blue-600"
