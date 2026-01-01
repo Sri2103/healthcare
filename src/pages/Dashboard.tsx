@@ -4,7 +4,7 @@ import {
   // Calendar,
   // FileText,
   // BarChart3,
-  Bell,
+  // Bell,
   Search,
   Menu,
   X,
@@ -189,14 +189,16 @@ export default function Dashboard() {
       {/* Main */}
       <main className=" h-screen flex-1 flex flex-col md:ml-0">
         {/* Header */}
-        <header className="h-16 bg-white border-b px-4 md:px-6 flex items-center justify-between">
+        <header className="h-16 bg-white border-b border-gray-200 px-4 md:px-6 flex items-center justify-between">
           {/* Left: Hamburger + Search */}
           <div className="flex items-center gap-3 w-full max-w-md">
+            {/* hide button on medium screens */}
             <button onClick={() => setSidebarOpen(true)} className="md:hidden">
               <Menu size={20} />
             </button>
 
-            <div className="relative flex-1">
+            {/* main header */}
+            <div className="relative flex-1 py-2">
               <Search
                 size={16}
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
@@ -211,27 +213,27 @@ export default function Dashboard() {
           {/* import and export */}
           <div className=" mx-2 flex gap-2">
             <div>
-              <div className="flex gap-2 border px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white cursor-pointer">
+              <div className="flex gap-2 border border-gray-200 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white cursor-pointer">
                 <Import size={24} /> Import
               </div>
             </div>
             <div>
               {/* export */}
-              <div className="flex gap-2 border px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
+              <div className="flex gap-2 border border-gray-200 px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
                 <Upload size={24} /> Export
               </div>
             </div>
           </div>
 
           {/* Right */}
-          <div className="hidden md:flex items-center gap-4 text-sm">
+          {/* <div className="hidden md:flex items-center gap-4 text-sm">
             <Bell size={18} />
             <div className="text-right">
               <p className="font-medium">Dr. Ateeq</p>
               <p className="text-xs text-slate-500">Physician</p>
             </div>
             <div className="w-9 h-9 rounded-full bg-slate-200" />
-          </div>
+          </div> */}
         </header>
 
         {/* Content */}

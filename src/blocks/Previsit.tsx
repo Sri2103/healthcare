@@ -143,6 +143,18 @@ function Previsit() {
             </div>
           </CardContent>
         </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Comms</CardTitle>
+            <CardDescription>Estimate reminders</CardDescription>
+          </CardHeader>
+          <CardContent className="flex gap-2">
+            <Button variant="outline">Email</Button>
+            <Button variant="outline">SMS</Button>
+            <Button variant="outline">IVR</Button>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="space-y-4">
@@ -166,18 +178,6 @@ function Previsit() {
                 placeholder="Notes or payer response"
               />
             </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Comms</CardTitle>
-            <CardDescription>Estimate reminders</CardDescription>
-          </CardHeader>
-          <CardContent className="flex gap-2">
-            <Button variant="outline">Email</Button>
-            <Button variant="outline">SMS</Button>
-            <Button variant="outline">IVR</Button>
           </CardContent>
         </Card>
       </div>

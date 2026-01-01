@@ -1,18 +1,14 @@
 export function Card({ children, className = "" }: any) {
   return (
     <div
-      className={`rounded-2xl border border-gray-200 bg-gray-50 ${className}`}
+      className={`rounded-2xl border shadow-md hover:shadow-xl transition-shadow border-gray-200 bg-gray-50 ${className}`}
     >
       {children}
     </div>
   );
 }
 export function CardHeader({ children }: any) {
-  return (
-    <div className="border-b px-4 py-3 bg-blue-50 text-blue-800">
-      {children}
-    </div>
-  );
+  return <div className="border-b px-4 py-3  text-blue-800">{children}</div>;
 }
 export function CardTitle({ children, className = "" }: any) {
   return (
