@@ -44,7 +44,7 @@ export default function AppointRev() {
                 {appointmentOpportunities.map((op) => (
                   <div
                     key={op.id}
-                    className="rounded-xl border bg-white p-3 flex items-center justify-between"
+                    className="rounded-xl border border-gray-300 bg-white p-3 flex items-center justify-between"
                   >
                     <div>
                       <div className="font-medium">{op.title}</div>
@@ -80,7 +80,7 @@ export default function AppointRev() {
           <CardContent>
             <div className="grid gap-2">
               <label className="text-sm">Provider</label>
-              <select className="rounded-xl border px-3 py-2">
+              <select className="rounded-xl border  border-gray-300 px-3 py-2">
                 <option>All</option>
                 <option>Dr. Smith</option>
                 <option>Dr. Johnson</option>
@@ -88,7 +88,7 @@ export default function AppointRev() {
               </select>
               <label className="text-sm">Min Est. Revenue</label>
               <input
-                className="rounded-xl border px-3 py-2"
+                className="rounded-xl border border-gray-300 px-3 py-2"
                 defaultValue="$0"
               />
               <div className="mt-2 flex gap-2">

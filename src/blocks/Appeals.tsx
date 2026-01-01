@@ -29,7 +29,7 @@ export default function Appeals() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-t">
+                  <tr className="border-t border-gray-300">
                     <td>CLM-88213</td>
                     <td>70450</td>
                     <td>$400</td>
@@ -39,7 +39,7 @@ export default function Appeals() {
                       <Button size="sm">Generate Appeal</Button>
                     </td>
                   </tr>
-                  <tr className="border-t">
+                  <tr className="border-t border-gray-300">
                     <td>CLM-88298</td>
                     <td>97110</td>
                     <td>$250</td>
@@ -75,12 +75,12 @@ export default function Appeals() {
             <CardDescription>Templates, attachments</CardDescription>
           </CardHeader>
           <CardContent>
-            <select className="w-full rounded-xl border px-3 py-2 text-[13px]">
+            <select className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2 text-[13px]">
               <option>Template A</option>
               <option>Template B</option>
             </select>
             <textarea
-              className="w-full rounded-xl border px-3 py-2 mt-2"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2 mt-2"
               rows={6}
               placeholder="Auto-generated letter body"
             />

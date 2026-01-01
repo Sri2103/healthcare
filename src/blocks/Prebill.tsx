@@ -33,7 +33,7 @@ export default function Prebill() {
                 </thead>
                 <tbody>
                   {claimLines.map((r) => (
-                    <tr key={r.id} className="border-t">
+                    <tr key={r.id} className="border-t border-gray-300">
                       <td className="py-2">{r.id}</td>
                       <td>{r.cpt}</td>
                       <td>{r.dx}</td>

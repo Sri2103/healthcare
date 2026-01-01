@@ -22,7 +22,7 @@ export default function SchedulePat() {
             <div className="font-medium">From</div>
             <input
               type="date"
-              className="w-full rounded-xl border px-3 py-2"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2"
               defaultValue="2025-11-12"
             />
           </div>
@@ -30,7 +30,7 @@ export default function SchedulePat() {
             <div className="font-medium">To</div>
             <input
               type="date"
-              className="w-full rounded-xl border px-3 py-2"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2"
               defaultValue="2025-11-20"
             />
           </div>
@@ -64,7 +64,7 @@ export default function SchedulePat() {
               </thead>
               <tbody>
                 {scheduledRows.map((r, i) => (
-                  <tr key={i} className="border-t">
+                  <tr key={i} className="border-t border-gray-300">
                     <td className="py-2">{r.dos}</td>
                     <td>{r.patient}</td>
                     <td>{r.provider}</td>

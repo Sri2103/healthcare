@@ -17,16 +17,16 @@ export default function AdminApi() {
         <CardContent>
           <div className="grid grid-cols-1 gap-2">
             <input
-              className="w-full rounded-xl border px-3 py-2"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
               defaultValue="https://api.clearinghouse.io/eligibility"
             />
             <div className="grid grid-cols-2 gap-2">
-              <select className="rounded-xl border px-3 py-2">
+              <select className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2">
                 <option>API Key</option>
                 <option>OAuth2</option>
               </select>
               <input
-                className="rounded-xl border px-3 py-2"
+                className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
                 defaultValue="vault://elig-key"
               />
             </div>
@@ -48,16 +48,16 @@ export default function AdminApi() {
         <CardContent>
           <div className="grid grid-cols-1 gap-2">
             <input
-              className="w-full rounded-xl border px-3 py-2"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
               defaultValue="https://api.clearinghouse.io/pa-278"
             />
             <div className="grid grid-cols-2 gap-2 mt-2">
-              <select className="rounded-xl border px-3 py-2">
+              <select className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2">
                 <option>API Key</option>
                 <option>OAuth2</option>
               </select>
               <input
-                className="rounded-xl border px-3 py-2"
+                className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
                 defaultValue="vault://pa-key"
               />
             </div>

@@ -187,7 +187,7 @@ export default function Analytics() {
             <CardDescription>FPY, denials, cash, propensity</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-48 rounded-xl border bg-white/60 p-4 text-sm text-slate-500">
+            <div className="h-48 rounded-md border-gray-300 bg-white/60 p-4 text-sm text-slate-500">
               [Chart placeholder]
             </div>
           </CardContent>

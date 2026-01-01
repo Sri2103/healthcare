@@ -29,7 +29,7 @@ export default function DataOps() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-t">
+                  <tr className="border-t border-gray-300">
                     <td>emr.patient_id</td>
                     <td>dim_patient.patient_id</td>
                     <td>STRING</td>
@@ -39,7 +39,7 @@ export default function DataOps() {
                       <Button size="sm">Edit</Button>
                     </td>
                   </tr>
-                  <tr className="border-t">
+                  <tr className="border-t border-gray-300">
                     <td>emr.order.cpt</td>
                     <td>orders_fact.cpt_code</td>
                     <td>STRING</td>
@@ -63,16 +63,16 @@ export default function DataOps() {
           </CardHeader>
           <CardContent>
             <input
-              className="w-full rounded-xl border px-3 py-2 text-[13px]"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2 text-[13px]"
               defaultValue="sftp://pms.example.com/drop"
             />
             <div className="grid grid-cols-2 gap-2 mt-2">
               <input
-                className="rounded-xl border px-3 py-2"
+                className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
                 defaultValue="ingest"
               />
               <input
-                className="rounded-xl border px-3 py-2"
+                className="rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400  px-3 py-2"
                 defaultValue="vault://pms-key"
               />
             </div>

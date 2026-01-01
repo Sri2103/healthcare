@@ -21,7 +21,7 @@ export default function Scheduler() {
               {Array.from({ length: 12 }).map((_, i) => (
                 <div
                   key={i}
-                  className={`rounded-xl border p-3 ${
+                  className={`rounded-xl border border-gray-300 p-3 ${
                     i % 4 === 1 ? "bg-red-50 border-red-200" : "bg-white"
                   }`}
                 >

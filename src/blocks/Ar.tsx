@@ -33,7 +33,7 @@ export default function Ar() {
                 </thead>
                 <tbody>
                   {worklist.map((w) => (
-                    <tr key={w.acct} className="border-t">
+                    <tr key={w.acct} className="border-t border-gray-300">
                       <td className="py-2">{w.acct}</td>
                       <td>{w.bal}</td>
                       <td>{w.age}</td>
@@ -75,7 +75,7 @@ export default function Ar() {
           </CardHeader>
           <CardContent>
             <textarea
-              className="w-full rounded-xl border px-3 py-2 text-[13px]"
+              className="w-full rounded-md border border-gray-300 bg-white outline-none transition duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-50 active:border-blue-700 focus:ring-2 focus:ring-blue-400 px-3 py-2 text-[13px]"
               defaultValue="Hi {first_name}, your balance of $980.00 is due on {due_date}. Pay securely here: {link}."
             />
             <div className="mt-2 flex gap-2">
