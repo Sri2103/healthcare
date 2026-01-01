@@ -166,7 +166,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen flex bg-white relative overflow-hidden">
+    <div className="min-h-screen min-w-sm flex bg-white relative overflow-hidden">
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div
@@ -366,7 +366,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Main */}
-      <main className=" h-screen flex-1 flex flex-col md:ml-0">
+      <main className=" min-w-0 h-screen flex-1 flex flex-col md:ml-0">
         {/* Header */}
         <header className="h-16 bg-white border-b border-gray-200 px-4 md:px-6 flex items-center justify-between">
           {/* Left: Hamburger + Search */}
