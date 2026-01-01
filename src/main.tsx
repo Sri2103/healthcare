@@ -21,9 +21,16 @@ import RevAccel from "./blocks/RevAccel.tsx";
 import DataOps from "./blocks/DataOps.tsx";
 import AdminApi from "./blocks/AdminApi.tsx";
 import RevOptix from "./blocks/Revoptix.tsx";
-import Analytics from "./blocks/Analytics.tsx";
+// import Analytics from "./blocks/Analytics.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import AppointRev from "./blocks/AppointRev.tsx";
+import DashboardTest from "./static/DashboardTest.tsx";
+import ArAnalytics from "./analytics/ArAnalytics.tsx";
+import BillingAnalytics from "./analytics/BillingAnalytics.tsx";
+import ClaAnalytics from "./analytics/CVAnalytics.tsx";
+import FinOpsAnalytics from "./analytics/FinOpsAnalytics.tsx";
+import PatientsPayment from "./analytics/PatientsPayment.tsx";
+import ScheduleAnalytics from "./analytics/ScheduleManagement.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -35,6 +42,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="register" element={<Register />} />
           <Route path="bi" element={<BiDashboard />} />
           <Route path="subscribe" element={<Subscription />} />
+          <Route path="/testDashboard" element={<DashboardTest />} />
         </Route>
 
         <Route path="dashboard" element={<Dashboard />}>
@@ -48,7 +56,14 @@ createRoot(document.getElementById("root")!).render(
           <Route path="appeals" element={<Appeals />} />
           <Route path="revaccel" element={<RevAccel />} />
           <Route path="revoptix" element={<RevOptix />} />
-          <Route path="analytics" element={<Analytics />} />
+          <Route path="analytics">
+            <Route path="ara" element={<ArAnalytics />} />
+            <Route path="bqa" element={<BillingAnalytics />} />
+            <Route path="cva" element={<ClaAnalytics />} />
+            <Route path="fin" element={<FinOpsAnalytics />} />
+            <Route path="payments" element={<PatientsPayment />} />
+            <Route path="schedule" element={<ScheduleAnalytics />} />
+          </Route>
           <Route path="dataops" element={<DataOps />} />
           <Route path="adminapis" element={<AdminApi />} />
           <Route path="apptrev" element={<AppointRev />} />
