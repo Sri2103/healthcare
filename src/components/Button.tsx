@@ -14,7 +14,7 @@ function Button({
   };
   const variants: any = {
     default: "bg-blue-500 text-white border-[#1E4D8B] hover:bg-blue-500/90",
-    outline: "bg-white text-gray-700 border-gray-300 hover:bg-gray-50",
+    outline: "bg-gray-100  text-black border-gray-300 hover:bg-gray-150",
   };
   return (
     <button

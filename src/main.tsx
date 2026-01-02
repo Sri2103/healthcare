@@ -7,9 +7,6 @@ import BiDashboard from "./static/Bi.tsx";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import Subscription from "./pages/Subscribe.tsx";
-
-// import OTest from "./static/bake.tsx";
-// import Jake from "./static/Jake.tsx";
 import Previsit from "./blocks/Previsit.tsx";
 import ConversationalBI from "./blocks/ConversationalBI.tsx";
 import SchedulePat from "./blocks/SchedulePat.tsx";
@@ -21,7 +18,6 @@ import RevAccel from "./blocks/RevAccel.tsx";
 import DataOps from "./blocks/DataOps.tsx";
 import AdminApi from "./blocks/AdminApi.tsx";
 import RevOptix from "./blocks/Revoptix.tsx";
-// import Analytics from "./blocks/Analytics.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import AppointRev from "./blocks/AppointRev.tsx";
 import DashboardTest from "./static/DashboardTest.tsx";

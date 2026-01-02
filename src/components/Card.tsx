@@ -3,11 +3,11 @@ export function Card({ children, className = "" }: any) {
     <div
       className={`
         w-full
-        min-w-[240px]
+        min-w-60
         max-w-full
         rounded-xl sm:rounded-2xl
         border border-gray-200
-        bg-gray-50
+        bg-white
         shadow-sm
         hover:shadow-md lg:hover:shadow-xl
         transition-all
@@ -23,7 +23,7 @@ export function CardHeader({ children }: any) {
   return (
     <div
       className="
-        border-b border-gray-200
+        border-b border-white
         px-3 py-2
         sm:px-4 sm:py-3
         lg:px-5
@@ -79,4 +79,3 @@ export function CardContent({ children, className = "" }: any) {
     </div>
   );
 }
-

@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
+import AdminPanel from "../blocks/AdminPanel";
 
 type SidebarItem = {
   id: string;
@@ -132,6 +133,7 @@ const SIDEBAR_MENU: SidebarItem[] = [
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [adminPanelOpen, setAdminPanelOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const nagivate = useNavigate();
   const location = useLocation();
@@ -405,11 +407,11 @@ export default function Dashboard() {
                 <Upload size={24} /> Export
               </div>
             </div>
-            <div className="flex gap-2 border border-gray-200 px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
-              Admin
+            <div className=" hidden md:flex gap-2 border border-gray-200 px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
+              <button onClick={() => setAdminPanelOpen(true)}>Admin</button>
             </div>
             <div className="flex gap-2 border border-gray-200 px-4 py-2 rounded-md hover:bg-blue-500  hover:text-white cursor-pointer">
-              Data
+              Data Type
             </div>
           </div>
 
@@ -430,6 +432,7 @@ export default function Dashboard() {
           <Outlet />
         </div>
       </main>
+      {adminPanelOpen && <AdminPanel setAdminPanelOpen={setAdminPanelOpen} />}
     </div>
   );
 }
