@@ -122,7 +122,7 @@ export default function AppointRev() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="relative flex items-end justify-around h-44 bg-gradient-to-t from-gray-100 to-white rounded-xl border p-4">
+              <div className="relative flex items-end justify-around h-44 bg-linear-to-t from-gray-100 to-white rounded-xl border border-gray-300 p-4">
                 <div className="flex flex-col items-center gap-2">
                   <div
                     className="relative w-14 bg-emerald-500/80 rounded-lg"
